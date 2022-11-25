@@ -1,5 +1,7 @@
 # ESP32 ComBadge
 
+https://github.com/Dans-Droids/ComBadge/blob/main/ComBadge_logo2.png?raw=true
+
 This is the Release Repo for the ESP32 ComBadge.
 
 Hardware:
