@@ -1,8 +1,9 @@
-# ESP32 ComBadge
 
-https://github.com/Dans-Droids/ComBadge/blob/main/ComBadge_logo2.png?raw=true
+![image](https://user-images.githubusercontent.com/72343266/204059726-b489b27e-8249-4f7a-ad3c-b7bba65312fd.png)
 
-This is the Release Repo for the ESP32 ComBadge.
+This is an ESP32-WROOM powered Communications Badge. Inspired by and based on Star Trek Lower Deck's ComBadge.
+No copyright infringment intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
+
 
 Hardware:
 ```
@@ -99,10 +100,21 @@ UPDATE will force the ComBadge to REBOOT and check for an Update.
 
 ## ToDo
 ```
-- Make simple starter file to run OTA updater, pulling latest Release to flash full working code.
+- Make simple starter file to run OTA updater, pulling latest Release to flash full working code. Easier to deploy and distribute.
 
 - Test ESP-NOW firmware for better Broadcast functionality.
 
+- Design PCB for Version 2
+
+- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru
+
+- Expand 5 Phrases to more including peoples names, internet searches, math questions etc
+
+- sync function to learn new "Contacts" within distance (maybe bluetooth pairing for safety)
+
+- Find better battery/power solution
+
+- 
 
 
 ```
