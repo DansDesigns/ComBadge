@@ -100,7 +100,8 @@ UPDATE will force the ComBadge to REBOOT and check for an Update.
 
 ## ToDo
 ```
-- Make simple starter file to run OTA updater, pulling latest Release to flash full working code. Easier to deploy and distribute.
+- Make simple starter file to run OTA updater, pulling latest Release to flash full working code.
+  Easier to deploy and distribute.
 
 - Test ESP-NOW firmware for better Broadcast functionality.
 
@@ -114,7 +115,6 @@ UPDATE will force the ComBadge to REBOOT and check for an Update.
 
 - Find better battery/power solution
 
-- 
 
 
 ```
