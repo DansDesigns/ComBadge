@@ -27,7 +27,7 @@ If using Metal Tape for Front.stl, there needs to be a piece of Metal Tape that 
 to the back and solder the TouchPin cable to this.
 
 If using Metal Front.stl, you need to solder or screw the TouchPin cable to the rear-side.
-Also the rear-side will need to be insulated before mounting components, Powder-Coat or Tape will be fine for this.
+The rear-side will need to be insulated before mounting components, Powder-Coat or Tape will be fine for this.
 
 ```
 
@@ -36,7 +36,7 @@ Also the rear-side will need to be insulated before mounting components, Powder-
 The Voice Recognition is done by a pre-trained model using this page as a guide:
 https://www.hackster.io/tinkerdoodle/deep-learning-speech-commands-recognition-on-esp32-b85c28?f=1
 
-DAC is used to play audio over the OEP3W as all the I2S amps available were too big for the ComBadge, more info here:
+DAC is used to play audio over the OEP3W as all the I2S amps available were too big for the ComBadge, more info:
 https://bigl.es/friday-fun-adafruit-chainsaw/
 
 OTA Updating was modified from here:
