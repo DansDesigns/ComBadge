@@ -9,9 +9,9 @@ Hardware:
 ```
 ESP32-WROOM-32e
 OEP3W amp
-8ohm Speaker
-200mah Lipo
-INMP441 I2S Mic
+8ohm Speaker (20mm x 14mm x 3mm)
+200mah Lipo (15mm x 20mm x 5mm)
+INMP441 I2S Mic (14mm OD)
 3D Printed Case
 Metal Adhesive Tape 38mm x 63mm to attach to Front.stl
 or
