@@ -113,6 +113,8 @@ UPDATE will force the ComBadge to REBOOT and check for an Update.
 - sync function to learn new "Contacts" within distance (maybe bluetooth pairing for safety) - WIP
 
 - Find better battery/power solution - WIP
+  Current: 220mah LiPo, USB-C Charging
+  Proposed: SuperCapacitor(s) inside ComBadge, charged over wireless by undershirt magnet backing (MagPack) with built-in battery..USB-C charging on MagPack
 
 
 
