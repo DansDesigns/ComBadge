@@ -103,17 +103,17 @@ UPDATE will force the ComBadge to REBOOT and check for an Update.
 - Make simple starter file to run OTA updater, pulling latest Release to flash full working code.
   Easier to deploy and distribute.
 
-- Test ESP-NOW firmware for better Broadcast functionality.
+- Test ESP-NOW firmware for better Broadcast functionality. - WIP
 
-- Design PCB for Version 2
+- Design PCB for Version 2 - DONE
 
-- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru
+- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru -WIP
 
-- Expand 5 Phrases to more including peoples names, internet searches, math questions etc
+- Expand 5 Phrases to more including peoples names, internet searches, math questions etc - WIP
 
-- sync function to learn new "Contacts" within distance (maybe bluetooth pairing for safety)
+- sync function to learn new "Contacts" within distance (maybe bluetooth pairing for safety) - WIP
 
-- Find better battery/power solution
+- Find better battery/power solution - WIP
 
 
 
