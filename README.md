@@ -12,24 +12,36 @@ NS8002 Amplifier Module
 8ohm Speaker (20mm x 14mm x 3mm)
 Wireless Charging Transfer of Power from 2000mah Battery to ComBadge
 INMP441 I2S Mic (14mm OD)
-3D Printed Case with Real Electroplated Metal coating, Silver or Gold. Potential for future design to include ability to choose graphic under a transparent Main Touch Pad.
+3D Printed Case with Real Electroplated Metal coating, Silver or Gold.
+Potential for future design to include ability to choose graphic under a transparent Main Touch Pad.
 ```
 
 ## Hardware Setup
 ```
-3D printed case (comprised of Back, Mid and Top) with Electroplated Touch Buttons around the Mid-edge and Main Touch Pad on the Top. Individual BADGEID etched into each Back piece. (See 3d Models Folder)
+3D printed case (comprised of Back, Mid and Top)
+with Electroplated Touch Buttons around the Mid-edge and Main Touch Pad on the Top.
+Individual BADGEID etched into each Back piece. (See 3d Models Folder).
+
 Manufactured PCB (excludes Amplifier module, 3v3 Regulator module, Speakers and Wireless Charging PCBS) (See PCB Folder)
+
 Class-D/Class-AB Amplifier module (https://www.ebay.co.uk/itm/204126443946)
+
 3v3 Regulator (https://shop.pimoroni.com/products/ap3429a-3-3v-buck-converter-breakout-3-3v-output-1-2a-max?variant=32173899546707)
+
 Wireless Charging PCB (https://www.aliexpress.com/item/1005003173949105.html)
+
 INMP441 Microphone (https://www.ebay.co.uk/itm/284801985119)
+
 8 Ohm Speaker (https://www.ebay.co.uk/itm/194934853031)
+
 ```
 
 ## Code & Libraries
 ```
 The Voice Recognition is done by Vosk, an offline (locally run) Python Speech Recognition toolkit.
-- Supports 20+ languages and dialects - English, Indian English, German, French, Spanish, Portuguese, Chinese, Russian, Turkish, Vietnamese, Italian, Dutch, Catalan, Arabic, Greek, Farsi, Filipino, Ukrainian, Kazakh, Swedish, Japanese, Esperanto, Hindi, Czech, Polish, Uzbek, Korean. With more to come.
+- Supports 20+ languages and dialects - English, Indian English, German, French, Spanish, Portuguese,
+Chinese, Russian, Turkish, Vietnamese, Italian, Dutch, Catalan, Arabic, Greek, Farsi, Filipino,
+Ukrainian, Kazakh, Swedish, Japanese, Esperanto, Hindi, Czech, Polish, Uzbek, Korean. With more to come.
 
 Arduino Tones library is used to generate the different beeps.
 
@@ -52,11 +64,13 @@ Wifi Manager was taken from here:
 ```
 If building yourself, Flash the OTA_Base.ino to the ESP32 via Arduino IDE. (NOT AVAILABLE YET)
 
-On reboot the ComBadge OTA Update will search GitHub for the latest Release, it automatically Downloads, Installs and Reboots the ComBadge.
+On reboot the ComBadge OTA Update will search GitHub for the latest Release,
+it automatically Downloads, Installs and Reboots the ComBadge.
 
 Manual checking for update is possible but not implimented yet.
 
-If need to change WIFI SSID, press the CONFIG Button combination and connect to the "ComBadge_Setup_AP" WIFI Access Point from a wifi enabled device, following the on screen instructions.
+If need to change WIFI SSID, press the CONFIG Button combination and connect to the
+"ComBadge_Setup_AP" WIFI Access Point from a wifi enabled device, following the on screen instructions.
 ```
 
 ## Usage
