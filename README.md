@@ -1,122 +1,108 @@
 
 ![image](https://user-images.githubusercontent.com/72343266/204059726-b489b27e-8249-4f7a-ad3c-b7bba65312fd.png)
 
-This is an ESP32-WROOM powered Communications Badge. Inspired by and based on Star Trek Lower Deck's ComBadge.
+This is an ESP32 powered Communications Badge. Inspired by and based on Star Trek Lower Deck's ComBadge.
 No copyright infringment intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
 
 
 Hardware:
 ```
 ESP32-WROOM-32e
-OEP3W amp
+NS8002 Amplifier Module
 8ohm Speaker (20mm x 14mm x 3mm)
-200mah Lipo (15mm x 20mm x 5mm)
+Wireless Charging Transfer of Power from 2000mah Battery to ComBadge
 INMP441 I2S Mic (14mm OD)
-3D Printed Case
-Metal Adhesive Tape 38mm x 63mm to attach to Front.stl
-or
-Metal 3D print of Front.stl
-
+3D Printed Case with Real Electroplated Metal coating, Silver or Gold. Potential for future design to include ability to choose graphic under a transparent Main Touch Pad.
 ```
+
 ## Hardware Setup
 ```
-In Version 1, the components are just floating inside the case,
-there is no PCB or proper support designed for the components due to the small size constraints.
-
-Also the ESP32-WROOM-32e needs a separate devboard in order to program the firmware. 
-(Search for ESP32-WROOM Programmer Devboard)
-
-If using Metal Tape for Front.stl, there needs to be a piece of Metal Tape that bends round under the Front.stl
-to the back and solder the TouchPin cable to this.
-
-If using Metal Front.stl, you need to solder or screw the TouchPin cable to the rear-side.
-The rear-side will need to be insulated before mounting components, Powder-Coat or Tape will be fine for this.
-
+3D printed case (comprised of Back, Mid and Top) with Electroplated Touch Buttons around the Mid-edge and Main Touch Pad on the Top. Individual BADGEID etched into each Back piece. (See 3d Models Folder)
+Manufactured PCB (excludes Amplifier module, 3v3 Regulator module, Speakers and Wireless Charging PCBS) (See PCB Folder)
+Class-D/Class-AB Amplifier module (https://www.ebay.co.uk/itm/204126443946)
+3v3 Regulator (https://shop.pimoroni.com/products/ap3429a-3-3v-buck-converter-breakout-3-3v-output-1-2a-max?variant=32173899546707)
+Wireless Charging PCB (https://www.aliexpress.com/item/1005003173949105.html)
+INMP441 Microphone (https://www.ebay.co.uk/itm/284801985119)
+8 Ohm Speaker (https://www.ebay.co.uk/itm/194934853031)
 ```
 
 ## Code & Libraries
 ```
-The Voice Recognition is done by a pre-trained model using this page as a guide:
-https://www.hackster.io/tinkerdoodle/deep-learning-speech-commands-recognition-on-esp32-b85c28?f=1
+The Voice Recognition is done by Vosk, an offline (locally run) Python Speech Recognition toolkit.
+- Supports 20+ languages and dialects - English, Indian English, German, French, Spanish, Portuguese, Chinese, Russian, Turkish, Vietnamese, Italian, Dutch, Catalan, Arabic, Greek, Farsi, Filipino, Ukrainian, Kazakh, Swedish, Japanese, Esperanto, Hindi, Czech, Polish, Uzbek, Korean. With more to come.
 
-DAC is used to play audio over the OEP3W as all the I2S amps available were too big for the ComBadge, more info:
-https://bigl.es/friday-fun-adafruit-chainsaw/
+Arduino Tones library is used to generate the different beeps.
 
 OTA Updating was modified from here:
-https://github.com/rdehuyss/micropython-ota-updater
+ - https://github.com/rdehuyss/micropython-ota-updater
 
-Capacitive Touch is built-in to the ESP32 so no external modules like the MPR121 were needed!
+Capacitive Touch is powered by the MPR121 chip aswell as using the ESP32's onboard Capacitive Touch Pins
+- Multi-Tap Button Combinations make for more control options with less physical areas. (See Manual for more info)
 
-The multi-function Taps are a modification of the built-in PushButton library, here:
-https://forum.micropython.org/viewtopic.php?t=8447
+I2S Microphone Streaming was modified from here:
+- https://github.com/pschatzmann/arduino-audio-tools/tree/main
 
+Wifi Manager was taken from here:
+- https://github.com/ozbotics/WIFIMANAGER-ESP32/tree/master
 
 
 ```
-
-
 
 ## Installation
-
 ```
-OTA Update searches GitHub for the latest Release on BOOT.
-If one is found it automatically Downloads, Installs
-and Reboots the ComBadge - providing there is WiFi connection.
+If building yourself, Flash the OTA_Base.ino to the ESP32 via Arduino IDE. (NOT AVAILABLE YET)
 
-Else if building for first time, Flash firmware with thonny/etc, upload files and reboot. 
+On reboot the ComBadge OTA Update will search GitHub for the latest Release, it automatically Downloads, Installs and Reboots the ComBadge.
+
+Manual checking for update is possible but not implimented yet.
+
+If need to change WIFI SSID, press the CONFIG Button combination and connect to the "ComBadge_Setup_AP" WIFI Access Point from a wifi enabled device, following the on screen instructions.
 ```
 
 ## Usage
-
 ```
 Single-Tap (Tap and Release to register)
-Double-Tap (tap twice within 400ms)
-Hold-Tap (1 second hold)
-
 
 Single tap on the Capacitive Touch Surface wakes from deep_sleep,
-Plays the "Chirp.wav" and activates "Listening Mode".
+Plays the Activation Beep and activates "Listening Mode".
 
-In "Listening Mode" there are 5 Spoken Commands:
-- Status
+In "Listening Mode" there are several Spoken Commands:
+- Call <NAME>
+- Time, Date, Weather etc
 - Record
-- Broadcast
-- Call
-- Update
+- Add Contact
+- More to come
 
-STATUS speaks the Time, Internal Temperature Sensor, Battery Level & Connection Status.
+CALL <NAME>
+- Calls the requested NAME, aslong as that name is stored locally with a coresponding <BADGEID>.
 
-RECORD begins recording from the microphone & writes to a file until
-a Double-Tap is registered or 5 minutes elapse.
+TIME, DATE etc
+- Say Time, Date, Weather or other commands to recieve that data back.
 
-BROADCAST is the same as a Walkie-Talkie with a Hold-Tap acting as Push-To-Talk.
-Double-Tap will end Broadcast Mode.
+RECORD
+- Begins recording from the microphone & writes to a file until a Second-Tap is registered.
 
-CALL will enable 1-to-1 communication based on number of taps to denote contact number 0-10,
-given after "Call" Command is spoken.
+ADD CONTACT
+- Spoken Command to add new contact (stored locally). Server asks for <NAME> and <BADGEID>
 
-UPDATE will force the ComBadge to REBOOT and check for an Update.
+
 ```
 
 ## ToDo
 ```
-- Make simple starter file to run OTA updater, pulling latest Release to flash full working code. - DONE
+- Make simple OTA_Base.ino starter file to run OTA updater, pulling latest Release to flash full working code. - WIP
 
-- Test ESP-NOW firmware for better Broadcast functionality. - WIP
+- Individual BADGEID's - WIP
 
-- Design PCB for Version 2 - DONE
+- Save SSID data to local storage for use across power states (after dismount/reboot). - WIP
 
-- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru -WIP
+- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru - WIP
 
-- Expand 5 Phrases to more including peoples names, internet searches, math questions etc - WIP
+- Add Contact Functionality - WIP
 
-- sync function to learn new "Contacts" within distance (maybe bluetooth pairing for safety) - WIP
+- Experiment with Transparent Electroconductive Spray Paint for customisable Top graphics. - WIP
 
-- Find better battery/power solution - WIP
-  Current: 220mah LiPo, USB-C Charging
-  Proposed: SuperCapacitor(s) inside ComBadge, charged over wireless by undershirt magnet backing (MagPack) with built-in battery..USB-C charging on MagPack
-
-
+- more that isnt listed here..
 
 ```
 
