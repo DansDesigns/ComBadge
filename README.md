@@ -45,9 +45,6 @@ Ukrainian, Kazakh, Swedish, Japanese, Esperanto, Hindi, Czech, Polish, Uzbek, Ko
 
 Arduino Tones library is used to generate the different beeps.
 
-OTA Updating was modified from here:
- - https://github.com/rdehuyss/micropython-ota-updater
-
 Capacitive Touch is powered by the MPR121 chip aswell as using the ESP32's onboard Capacitive Touch Pins
 - Multi-Tap Button Combinations make for more control options with less physical areas. (See Manual for more info)
 
@@ -115,6 +112,8 @@ ADD CONTACT
 - Add Contact Functionality - WIP
 
 - Experiment with Transparent Electroconductive Spray Paint for customisable Top graphics. - WIP
+
+- OTA Updating from GitHub
 
 - more that isnt listed here..
 
