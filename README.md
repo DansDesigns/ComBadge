@@ -1,7 +1,7 @@
 NOTE, THIS IS STILL IN DEVELOPMENT AND CURRENTLY AROUND 45% DONE..
 
 Discord Server:
-https://discord.gg/tmJfCuT4Cy
+https://discord.gg/cbAzHKdTbj
 
 
 ![image](https://user-images.githubusercontent.com/72343266/204059726-b489b27e-8249-4f7a-ad3c-b7bba65312fd.png)
