@@ -109,19 +109,21 @@ ADD CONTACT
 
 ## ToDo
 ```
-- Make simple OTA_Base.ino starter file to run OTA updater, pulling latest Release to flash full working code. - WIP
+WIP = In Progress, TBS = To Be Started , TBD = To Be Decided, R&D = Research needed
 
-- Individual BADGEID's - WIP
+- Make simple OTA_Base.ino starter file to run OTA updater, pulling latest Release to flash full working code. - WIP
 
 - Save SSID data to local storage for use across power states (after dismount/reboot). - WIP
 
-- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru - WIP
+- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru - TBS
 
-- Add Contact Functionality - WIP
+- Bluetooth PAN for internet connectivity instead of WIFI - R&D WIP TBS
 
-- Experiment with Transparent Electroconductive Spray Paint for customisable Top graphics. - WIP
+- "Add Contact" Functionality - WIP
 
-- OTA Updating from GitHub
+- Experiment with Transparent Electroconductive Spray Paint for customisable Top graphics. - R&D TBS WIP
+
+- OTA Updating from GitHub - WIP
 
 - more that isnt listed here..
 
