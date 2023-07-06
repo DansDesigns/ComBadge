@@ -3,7 +3,7 @@ NOTE, THIS IS STILL IN DEVELOPMENT AND CURRENTLY AROUND 45% DONE..
 Discord Server:
 https://discord.gg/cbAzHKdTbj
 
-Youtube Channel:
+Youtube Development Channel:
 https://www.youtube.com/channel/UC_F5HQEmCyoRnEubfEMa24g
 
 
