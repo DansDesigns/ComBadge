@@ -117,7 +117,7 @@ WIP = In Progress, TBS = To Be Started , TBD = To Be Decided, R&D = Research nee
 
 - Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru - TBS
 
-- Bluetooth PAN for internet connectivity instead of WIFI - R&D WIP TBS
+- Bluetooth PAN for internet connectivity instead of WIFI - R&D TBS
 
 - "Add Contact" Functionality - WIP
 
