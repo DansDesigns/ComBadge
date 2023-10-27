@@ -32,15 +32,15 @@ Individual BADGEID etched into each Back piece. (See 3d Models Folder).
 
 Manufactured PCB (excludes Amplifier module, 3v3 Regulator module, Speakers and Wireless Charging PCBS) (See PCB Folder)
 
-Class-D/Class-AB Amplifier module (https://www.ebay.co.uk/itm/204126443946)
+Class-D/Class-AB Amplifier module https://www.ebay.co.uk/itm/204126443946
 
-3v3 Regulator (https://shop.pimoroni.com/products/ap3429a-3-3v-buck-converter-breakout-3-3v-output-1-2a-max?variant=32173899546707)
+3v3 Regulator https://shop.pimoroni.com/products/ap3429a-3-3v-buck-converter-breakout-3-3v-output-1-2a-max?variant=32173899546707
 
-Wireless Charging PCB (https://www.aliexpress.com/item/1005003173949105.html)
+Wireless Charging PCB https://www.aliexpress.com/item/1005003173949105.html
 
-INMP441 Microphone (https://www.ebay.co.uk/itm/284801985119)
+INMP441 Microphone https://www.ebay.co.uk/itm/284801985119
 
-8 Ohm Speaker (https://www.ebay.co.uk/itm/194934853031)
+8 Ohm Speaker https://www.ebay.co.uk/itm/194934853031
 
 ```
 
@@ -129,7 +129,7 @@ WIP = In Progress, TBS = To Be Started , TBD = To Be Decided, R&D = Research nee
 
 ```
 
-
+```
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
@@ -138,8 +138,9 @@ to discuss what you would like to change.
 Please make sure to update tests as appropriate.
 
 ```
+
 Check out this great project,
 with more of a walkie-talkie take on the ComBadge,
 here: https://github.com/Pippadi/combadge
 
-```
+
