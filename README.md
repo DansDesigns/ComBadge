@@ -140,6 +140,6 @@ Please make sure to update tests as appropriate.
 ```
 Check out this great project,
 with more of a walkie-talkie take on the ComBadge,
-here: (https://github.com/Pippadi/combadge)
+here: https://github.com/Pippadi/combadge
 
 ```
