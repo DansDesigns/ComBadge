@@ -9,7 +9,7 @@ https://www.youtube.com/channel/UC_F5HQEmCyoRnEubfEMa24g
 
 ![image](https://user-images.githubusercontent.com/72343266/204059726-b489b27e-8249-4f7a-ad3c-b7bba65312fd.png)
 
-This is an ESP32 powered Communications Badge. Inspired by and based on Star Trek Lower Deck's ComBadge.
+This is an ESP32 powered Communications Badge. Inspired by Star Trek and based on the Lower Deck's ComBadge.
 No copyright infringment intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
 
 
