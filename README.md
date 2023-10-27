@@ -137,4 +137,7 @@ to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-``` Check out this great project, with more of a walkie-talkie take on the ComBadge, here: [Pippadi/Combadge](https://github.com/Pippadi/combadge)
+```
+Check out this great project, with more of a walkie-talkie take on the ComBadge, here: [Pippadi/Combadge](https://github.com/Pippadi/combadge)
+
+```
