@@ -1,4 +1,4 @@
-NOTE, THIS IS STILL IN DEVELOPMENT AND CURRENTLY AROUND 45% DONE..
+NOTE, THIS IS STILL IN DEVELOPMENT AND CURRENTLY AROUND 65% DONE..
 
 Discord Server:
 https://discord.gg/cbAzHKdTbj
@@ -62,17 +62,20 @@ I2S Microphone Streaming was modified from here:
 Wifi Manager was taken from here:
 - https://github.com/ozbotics/WIFIMANAGER-ESP32/tree/master
 
+OTA Updater modified from:
+- https://www.youtube.com/watch?v=o4Qw0CDzO7E&pp=ygUYZXNwMzIgYXJkdWlubyBvdGEgZ2l0aHVi
+
 
 ```
 
 ## Installation
 ```
-If building yourself, Flash the OTA_Base.ino to the ESP32 via Arduino IDE. (NOT AVAILABLE YET)
+If building yourself, Flash the OTA_Installer.ino to the ESP32 via Arduino IDE.
 
 On reboot the ComBadge OTA Update will search GitHub for the latest Release,
 it automatically Downloads, Installs and Reboots the ComBadge.
 
-Manual checking for update is possible but not implimented yet.
+Manual checking for update is possible by typing "U" into the Arduino IDE Serial Monitor.
 
 If need to change WIFI SSID, press the CONFIG Button combination and connect to the
 "ComBadge_Setup_AP" WIFI Access Point from a wifi enabled device, following the on screen instructions.
