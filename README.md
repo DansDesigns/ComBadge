@@ -110,25 +110,27 @@ ADD CONTACT
 
 ```
 
-## ToDo
+## Progress/ToDo
 ```
-WIP = In Progress, TBS = To Be Started , TBD = To Be Decided, R&D = Research needed
+WIP = In Progress | TBS = To Be Started | R&D = Research needed | DONE = Finished dev & in usable state
 
-- Make simple OTA_Base.ino starter file to run OTA updater, pulling latest Release to flash full working code. - WIP
+- Make simple OTA_Base.ino starter file to run OTA updater, pulling latest Release to flash full working code. - DONE
 
-- Save SSID data to local storage for use across power states (after dismount/reboot). - WIP
+- Save SSID data to local storage for use across power states (after dismount/reboot). - DONE
 
-- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru - TBS
+- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru - R&D, TBS
 
-- Bluetooth PAN for internet connectivity instead of WIFI - R&D TBS
+- Bluetooth PAN for internet connectivity instead of WIFI - R&D, TBS
 
 - "Add Contact" Functionality - WIP
 
-- Experiment with Transparent Electroconductive Spray Paint for customisable Top graphics. - R&D TBS WIP
+- Experiment with Transparent Electroconductive Spray Paint for customisable Top graphics. - R&D, WIP
 
-- OTA Updating from GitHub - WIP
+- OTA Updating from GitHub - DONE
 
-- more that isnt listed here..
+- LORAWIFI for custom comms network with large range and low power. - R&D, TBS
+
+- more that is'nt listed here..
 
 ```
 
