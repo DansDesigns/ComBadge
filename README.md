@@ -1,7 +1,14 @@
+![image](https://user-images.githubusercontent.com/72343266/204059726-b489b27e-8249-4f7a-ad3c-b7bba65312fd.png)
+
+# ESP32 powered Communications Badge.
+Inspired by Star Trek and based on The Next Generation's ComBadge.
+No copyright infringement intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
+
+
 NOTE, THIS IS STILL IN DEVELOPMENT..
 
 
-VERSION 0.2 IS IN REDESIGN BASED ON FEEDBACK FROM V0.1
+
 
 Discord Server:
 https://discord.gg/cbAzHKdTbj
@@ -10,12 +17,29 @@ Youtube Development Channel:
 https://www.youtube.com/channel/UC_F5HQEmCyoRnEubfEMa24g
 
 
-![image](https://user-images.githubusercontent.com/72343266/204059726-b489b27e-8249-4f7a-ad3c-b7bba65312fd.png)
+# VERSION 0.2 IS IN REDESIGN BASED ON FEEDBACK FROM V0.1
 
-This is an ESP32 powered Communications Badge. Inspired by Star Trek and based on The Next Generation's ComBadge.
-No copyright infringment intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
+Version 0.2 Changelog:
+```
+Added MTCH6102 multi-gesture Trackpad controller as replacement for Main Capacitive Touch Panel.
+Upgraded large single electrode to custom Trackpad Array.
+Upgraded side TouchPads from Internal ESP32 TouchPins to MPR121 Pins.
+Upgraded ESP32-WROOM-32 to ESP32-S3-WRROM-1.
+Upgraded low level Class-D Audio Amplifier to I2S MAX98357 Audio Amplifier.
+Added RFM95 Lora-WiFi Adaptor for off-grid communication via Wireless Config-AP.
+Added WS2812b Notification/Status RGB LED
+Upgraded power converter output from 600ma to 1200ma
 
+```
 
+Version 0.1 errors:
+```
+Wake from touch stopped working with upgrade to ESP32 core v.3.x
+downgraded ESP32 core in Arduino IDE to 2.0.14 however error(222) still remains.
+Main Touch Panel has issues with excess charge & random activations due to physical size of the electrode..
+```
+
+## Version 0.1a:
 Hardware:
 ```
 ESP32-WROOM-32e
@@ -121,7 +145,7 @@ WIP = In Progress | TBS = To Be Started | R&D = Research needed | DONE = Finishe
 
 - Save SSID data to local storage for use across power states (after dismount/reboot). - DONE
 
-- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone passthru - R&D, TBS
+- Bluetooth Classic HFP (Hands Free Protocol) for Mobile Phone pass-thru - R&D, TBS
 
 - Bluetooth PAN for internet connectivity instead of WIFI - R&D, TBS
 
@@ -133,7 +157,7 @@ WIP = In Progress | TBS = To Be Started | R&D = Research needed | DONE = Finishe
 
 - LORAWIFI for custom comms network with large range and low power. - R&D, TBS
 
-- more that is'nt listed here..
+- more that isn't listed here..
 
 ```
 
