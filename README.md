@@ -29,12 +29,12 @@ Version 0.2 Changelog:
 Added MTCH6102 multi-gesture Trackpad controller as replacement for Main Capacitive Touch Panel.
 Upgraded large single electrode to custom Trackpad Array.
 Upgraded side TouchPads from Internal ESP32 TouchPins to MPR121 Pins.
-Upgraded ESP32-WROOM-32 to ESP32-S3-WRROM-1.
+Upgraded ESP32-WROOM-32 to ESP32-S3-WROOM-1.
 Upgraded low level Class-D Audio Amplifier to I2S MAX98357 Audio Amplifier.
 Added RFM95 Lora-WiFi Adaptor for off-grid communication via Wireless Config-AP.
 Added WS2812b Notification/Status RGB LED
 Upgraded power converter output from 600ma to 1200ma
-
+Reduced battery size from 2000mAh to 1200mAh to reduce size
 ```
 
 Version 0.1 errors:
