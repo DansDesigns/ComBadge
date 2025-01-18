@@ -1,7 +1,7 @@
 ![image](https://user-images.githubusercontent.com/72343266/204059726-b489b27e-8249-4f7a-ad3c-b7bba65312fd.png)
 
-## Voxari
-# "Carry the Conversation Everywhere."
+# Voxari
+## "Carry the Conversation Everywhere."
 
 an ESP32 powered Communications Badge.
 Inspired by Star Trek and based on The Next Generation's ComBadge.
