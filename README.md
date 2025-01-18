@@ -5,12 +5,12 @@
 
 ## "Carry the Conversation Everywhere."
 
-an ESP32 powered Communications Badge.
-Inspired by Star Trek and based on The Next Generation's ComBadge.
-No copyright infringement intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
+* an ESP32 powered Communications Badge. Inspired by Star Trek and based on The Next Generation's ComBadge.
+
+* No copyright infringement intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
 
 
-NOTE, THIS IS STILL IN DEVELOPMENT..
+* NOTE, THIS IS STILL IN DEVELOPMENT..
 
 
 
