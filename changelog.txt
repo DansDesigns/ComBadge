@@ -1,0 +1,160 @@
+ESP32 ComBadge V0.2 Changelog
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   28/01/2025 - ESP32-S3 & ESP32-SR (Confirmed working on ESP32-S3 hardware):
+   =================================
+   - Compiled starting 9 Commands (python needed nltk & g2p-en)
+   - Fixed issues with ESP32-SR "basic" - set to mono mode, 16bit, left
+   - Confirmed working "basic" ESP32-SR with INMP441 & modified neopixel status indicator
+
+   - Confirmed Compilation Settings:
+
+      ESP32S3 Dev Module
+      USB Mode: Hardware CDC & Jtag
+      USB CDC on Boot: Enabled
+      Flash Size: 16M
+      Partition Scheme: ESP32-SR (3Mb App, 7Mb Spiffs, 2.9Mb Model)
+      PSRAM: OPISRAM
+      Core 1
+
+    - FAILS to compile if MTCH activated in setup.. cannot write command as non existant atm
+    - added WiFIMulti (multiple wifi ssids & swap to highest strength) - NEEDS FIXING
+    - TO ADD: multi core wifi auto reconnect (seems to already be part of WiFiMulti)
+
+  Sketch uses 1425020 bytes (45%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 57180 bytes (17%) of dynamic memory, leaving 270500 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+
+   25-27/01/2025 - ESP32-S3 & ESP32-SR (Confirmed working on ESP32-S3 hardware):
+   =================================
+   - Updated neopixel control for ESP32-S3 with built-in controller:
+   - neopixelWrite(RGB_BUILTIN, 150,150,150);
+   - updated MQTT concept: not needed on vpn, can be anywhere on internet..
+   - added Husranet as VPN (max 5 for free account..)
+
+
+
+
+
+   24/01/2025 - ESP32-S3 & ESP32-SR (Test Compilations):
+   =================================
+   - Updated all to ESP32-S3 due to:
+   - ESP32-SR only compatible with ESP32-S3 on core V3.11
+   - Updated ESP32 Arduino core to v3.11
+   - LCARS File Browser not compiling on ESP core 3.1.1 - FIXED, SEE https://github.com/holgerlembke/ESPFMfGK/issues/8
+
+   ~~~~~~~~~~~~~~~~~~ Working/Compiles ok ~~~~~~~~~~~~~~~~~~
+   - Neopixel
+   - I2S Mic
+   - I2S Speech Recognition
+   - Deep Sleep
+   - Touch Wake
+   - BadgeID
+   - LCARS File Manager
+   - MPR121
+   - MTCH6102
+   - SD Card
+   - record to wav on SD Card
+   - MAX17045
+
+   Compile Settings:
+    - USB CDC on
+    - HUGE APP (no ota)
+
+  Sketch uses 1081660 bytes (34%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 46324 bytes (14%) of dynamic memory, leaving 281356 bytes for local variables. Maximum is 327680 bytes.
+
+
+   ~~~~~~~~~~~~~~~~~~ Needs Testing ~~~~~~~~~~~~~~~~~~
+   - I2S record to SD
+   - I2S stream to IP
+   - send .wav to IP
+   - download .wav from IP
+   - MQTT
+   - ESP32 Stream HTTP Client
+   - ESP-SR add Command/Change Command
+   -
+   -
+
+
+  ----------------------------------ESP32-WROOM-32 Version-------------------------------------
+  -----------------------------------------OUTDATED--------------------------------------------
+
+   22/01/2025:
+   =============================
+   - Removed RFM95
+   - Added mSD Card
+   - Split project into multiple .ino files
+   - Renamed .ino files to correct alphabetical order
+   - removed "download as zip" option in ESPFMfGK.h
+
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   -found HackCode/Libraies for:
+     - LCARS Wifi File Browser ESPFMfGK                             - Compiles ok
+     - ESP32 I2S Record to .wav on SD Card                          - compiles ok
+     - Preferences NVS Storage                                      - Built-in Library - Needs adding to store BadgeID in NVS
+
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   - Added to Main Code:
+      - LCARS Wifi File Browser ESPFMfGK
+      - Deep Sleep & Touch Wake                                     - Needs adjusting for correct pins
+      - SD Card                                                     - Compiles ok, works with Wifi File Manager, Need to check it stores .wav
+      - BadgeID                                                     - Compiles ok
+      - I2S Record .wav to SD Card                                  - needs testing with INMP441 but Compiles ok
+      - NeoPixels                                                   - Need to change to GPIO16-ESP32-S3 or GPIO04-ESP32
+      - External IP lookup                                          - needs testing
+      - OTA Update                                                  - Activated by Serial Monitor: send "U"
+      - MTCH6102                                                    - Added library but no init code
+      - MAX17043 Lipo Monitor                                       - Added library but no init code
+      - MPR121                                                      - Added library & init, needs button code
+
+  Huge App 3Mb no OTA Partition/1Mb SPIFFS:
+  Sketch uses 944365 bytes (30%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 47044 bytes (14%) of dynamic memory, leaving 280636 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+
+   19/01/2025:
+   =============================
+   found HackCode/Libraies for:
+     - record from I2S Mic & save .wav to Internal Storage        - Made for XIAO ESP32-S3 Sense, NEEDS MODIFYING
+     - read line from file                                        - CURRENTLY ON SDFAT, NEEDS UPDATING TO LITTLEFS FOR INTERNAL/SD Card
+     - ESP32 / ESP32-S3 Deep Sleep with Touch & EXT Wake          - Compiles ok
+     - get external ip address                                    - Compiles ok
+     - MTCH6102 Arduino Library                                   - Compiles ok
+
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Collated Libraries:    (Need adding to main code)
+    - EEPROM Save WiFi
+    - Chip ID (BadgeID)
+    - WS2812b NeoPixel Controller
+    - OTA Installer
+    - On-Demand Config-AP
+    - LittleFs Test
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Libraries still needed:
+    - MQTT Receive data/file + save to storage
+    - RFM95 (if using) - 22/01/2025: use SD Card
+    -
+
+
+   01/01/2025:
+   =============================
+   UPDATES FROM V0.1:
+
+    New PCB
+    New Casing
+    Added MTCH6102 multi-gesture Trackpad controller as replacement for Main Capacitive Touch Panel.
+    Upgraded large single electrode to custom Trackpad Array.
+    Upgraded side TouchPads from Internal ESP32 TouchPins to MPR121 Pins.
+    Upgraded ESP32-WROOM-32 to ESP32-S3-WROOM-1.
+    Upgraded low level Class-D Audio Amplifier to I2S MAX98357 Audio Amplifier.
+    Added RFM95 Lora-WiFi Adaptor for off-grid communication via Wireless Config-AP.
+    Added WS2812b Notification/Status RGB LED
+    Upgraded power converter output from 600ma to 1200ma
+    Reduced battery size from 2000mAh to 1200mAh to reduce size
+    =============================
+
