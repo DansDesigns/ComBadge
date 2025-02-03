@@ -1,19 +1,11 @@
 
 
 # Voxair
-
-
 ## "Carry the Conversation Everywhere."
 
-* an ESP32 powered Communications Badge. Inspired by Star Trek and based on The Next Generation's ComBadge.
+* an ESP32 powered Communications Badge. Inspired by Star Trek The Next Generation's ComBadge.
 
 * No copyright infringement intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
-
-
-* NOTE, THIS IS STILL IN DEVELOPMENT..
-
-
-
 
 Discord Server:
 https://discord.gg/cbAzHKdTbj
@@ -22,21 +14,24 @@ Youtube Development Channel:
 https://www.youtube.com/channel/UC_F5HQEmCyoRnEubfEMa24g
 
 
-# VERSION 0.2 IS IN REDESIGN BASED ON FEEDBACK FROM V0.1
+# VERSION 0.2 IN ALPHA TEST
 
 Version 0.2 Changelog:
 ```
+Integrated ESP MultiNet7 Speech Recognition - no need for external STT Server, everything is done on Badge!
 Added MTCH6102 multi-gesture Trackpad controller as replacement for Main Capacitive Touch Panel.
 Upgraded large single electrode to custom Trackpad Array.
 Upgraded side TouchPads from Internal ESP32 TouchPins to MPR121 Pins.
 Upgraded ESP32-WROOM-32 to ESP32-S3-WROOM-1.
 Upgraded low level Class-D Audio Amplifier to I2S MAX98357 Audio Amplifier.
-Added RFM95 Lora-WiFi Adaptor for off-grid communication via Wireless Config-AP.
 Added WS2812b Notification/Status RGB LED
 Upgraded power converter output from 600ma to 1200ma
 Reduced battery size from 2000mAh to 1200mAh to reduce size
 ```
+* 03/02/2025 v0.2 PCB & Code to come soon..
 
+
+  
 Version 0.1 errors:
 ```
 Wake from touch stopped working with upgrade to ESP32 core v.3.x
