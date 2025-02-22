@@ -17,6 +17,9 @@ https://www.youtube.com/channel/UC_F5HQEmCyoRnEubfEMa24g
 # VERSION 0.2 IN ALPHA TEST
 
 Version 0.2 Changelog:
+https://github.com/DansDesigns/ComBadge/blob/main/changelog.txt
+
+Summary:
 ```
 Integrated ESP MultiNet7 Speech Recognition - no need for external STT Server, everything is done on Badge!
 Added MTCH6102 multi-gesture Trackpad controller as replacement for Main Capacitive Touch Panel.
