@@ -1,8 +1,92 @@
-ESP32 ComBadge V0.2 Changelog
+/*  ESP32 ComBadge V0.2 Changelog
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   22/02/2025
+   ==========
+   - removed husarnet for now, fails to connect
+   - external ip re-worked
+   - 
+
+   18/02/2025 - WIFI UPDATE
+   ==========================================
+   - added SmartConfig - Android App to connect wifi
+   - fixed ESP32-S3 WiFi connection issues by adding WiFi.setTxPower(WIFI_POWER_8_5dBm); after each WiFi.begin and softAP call
+        #for fix, see: https://github.com/espressif/arduino-esp32/issues/6767
+   - added wake on ext pin2 (interupt from mtch6102)
+   - minimised wifi connection functions
+
+
+   #######
+   ISSUES:
+   #######
+   - Hursanet VPN crashing on hursanet.join()...
+      ** created Github issue in hursanet-arduino-esp32 repo
+
+
+  Sketch uses 2173468 bytes (69%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 69756 bytes (21%) of dynamic memory, leaving 257924 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+   15/02/2025 - multi-task redesign, LTE integration
+   ===============================================
+   - redesigned multi-tasking so wifi is in main loop & other bits are in their own xtaskcreate's
+   - added SIM7080-GM to PCB
+   - added NANO sim holder to PCB
+   - Upgraded MTCH6102 library due to bugs in writeRegister @ endTransmission()
+
+
+  Sketch uses 2173468 bytes (69%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 69756 bytes (21%) of dynamic memory, leaving 257924 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+   13-02-2025 - ConfigAP, EEPROM save WiFi creds & others
+   ====================================================================
+   - added config-ap from v0.1 code
+   - added eeprom save wifi credentials from config-ap
+   - moved hursanet connection to its own void
+   - updated ESP32 T1 TouchPin config
+   - added DEBUG control for Serial.print lines
+
+
+   #######
+   ISSUES:
+   #######
+   - mpr121 random touch activations (only on pins with cables connected)
+   - config-ap gets disabled by:
+   - wifi autoreconnect doesnt stop but no longer blocks serial commands or buittons presses
+   -
+
+
+  Sketch uses 2247400 bytes (71%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 69972 bytes (21%) of dynamic memory, leaving 257708 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+
+   09/02/2025 - MVP Code formating & tidyup
+   ====================================================================
+   - rgbLedWrite() replaces depreciated neopixelWrite()
+   - redo WifiMulti
+   - added Hursanet VPN library
+   - specified I2C pins 11 = SDA, 10 = SDA
+   - added subscription mechanism
+
+
+   #######
+   ISSUES:
+   #######
+   - wifiMulti tries to connect 6 times then restarts..
+   - i2c mpr121 seems to crash code.. could be chip is broken..
+   -
+
+  Sketch uses 2010448 bytes (63%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 68484 bytes (20%) of dynamic memory, leaving 259196 bytes for local variables. Maximum is 327680 bytes.
+
+
 
    28/01/2025 - ESP32-S3 & ESP32-SR (Confirmed working on ESP32-S3 hardware):
-   =================================
+   ===================================================================
    - Compiled starting 9 Commands (python needed nltk & g2p-en)
    - Fixed issues with ESP32-SR "basic" - set to mono mode, 16bit, left
    - Confirmed working "basic" ESP32-SR with INMP441 & modified neopixel status indicator
@@ -28,7 +112,7 @@ ESP32 ComBadge V0.2 Changelog
 
 
    25-27/01/2025 - ESP32-S3 & ESP32-SR (Confirmed working on ESP32-S3 hardware):
-   =================================
+   ===================================================================
    - Updated neopixel control for ESP32-S3 with built-in controller:
    - neopixelWrite(RGB_BUILTIN, 150,150,150);
    - updated MQTT concept: not needed on vpn, can be anywhere on internet..
@@ -39,7 +123,7 @@ ESP32 ComBadge V0.2 Changelog
 
 
    24/01/2025 - ESP32-S3 & ESP32-SR (Test Compilations):
-   =================================
+   ===================================================================
    - Updated all to ESP32-S3 due to:
    - ESP32-SR only compatible with ESP32-S3 on core V3.11
    - Updated ESP32 Arduino core to v3.11
@@ -78,9 +162,10 @@ ESP32 ComBadge V0.2 Changelog
    -
    -
 
-
+  =============================================================================================
   ----------------------------------ESP32-WROOM-32 Version-------------------------------------
   -----------------------------------------OUTDATED--------------------------------------------
+  =============================================================================================
 
    22/01/2025:
    =============================
@@ -157,4 +242,7 @@ ESP32 ComBadge V0.2 Changelog
     Upgraded power converter output from 600ma to 1200ma
     Reduced battery size from 2000mAh to 1200mAh to reduce size
     =============================
+*/
 
+
+//EOF
