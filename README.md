@@ -7,13 +7,10 @@
 
 * No copyright infringement intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
 
-Discord Server:
-https://discord.gg/cbAzHKdTbj
-
 Youtube Development Channel:
 https://www.youtube.com/channel/UC_F5HQEmCyoRnEubfEMa24g
 
-
+![](https://github.com/DansDesigns/ComBadge/blob/main/Pictures/Version%200.2/3D_ComBagde_v0.2_2024-11-24-isometric.png)
 # VERSION 0.2 IN ALPHA TEST
 
 Version 0.2 Changelog:
@@ -175,5 +172,6 @@ Please make sure to update tests as appropriate.
 Check out this great project,
 with more of a walkie-talkie take on the ComBadge,
 here: https://github.com/Pippadi/combadge
+
 
 
