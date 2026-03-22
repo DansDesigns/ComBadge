@@ -1,5 +1,225 @@
 /*  ESP32 ComBadge V0.2 Changelog
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  19/03/2026 - update 6
+  ========================
+  added python program to generate encrypted husarnet.key and burn decryption key into NVStorage
+  Husarnet passcode moved to encrypted file on SD card with decryption key stored in NVS
+
+  updated firmware_update, setup, loop, main file
+  added husarnet_key.ino to manage the NVS key
+
+  removed smartconfig & replaced with captive wifi portal with info page
+
+  added 3 init tries for SD
+
+  updated LED_2 to have a wifiReady flag
+
+  neopixel 2 not working..
+
+
+  Sketch uses 2158186 bytes (68%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 73300 bytes (22%) of dynamic memory, leaving 254380 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+  18/03/2026 - 2
+  ========================================
+
+  added sound playback function for embedded .h files (converted .wav)
+  added chirp sound
+  added ring sound
+  updated arduino-esp32-core to version 3.2.0
+  added speaker test in setup (speakertest.ino needs updating)
+
+  ==========================ISSUES==============================
+  ISSUE: problem with smartconfig, replace with captive web portal (lcars style?)
+  adjusted i2srecording - still has issues..
+
+
+  Sketch uses 2108726 bytes (67%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 72788 bytes (22%) of dynamic memory, leaving 254892 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+  18/03/2026
+  ========================================
+  updated husarnet connection, removed redundant wifi connection clause in keepwifi.ino
+
+  re-wrote mqtt_presense.ino to remove mqtt entirely and use UDP packets with Presence Broadcast
+
+
+  Sketch uses 2053372 bytes (65%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 71156 bytes (21%) of dynamic memory, leaving 256524 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+  17/03/2026 - update 5 (not fully installed, see update 6)
+  ========================
+
+
+  updated contacts, audio_stream, main file, call_functions, call_manager, onsrevent
+
+  renamed contacts to ca_contacts
+
+
+
+  Sketch uses 2054544 bytes (65%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 70884 bytes (21%) of dynamic memory, leaving 256796 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+
+  16/03/2026 - update 4
+  ========================
+
+   new files:
+
+   contacts.ino - the address book, since everything else depends on being able to resolve a BadgeID to an IP
+   mqtt_presence.ino - presence publishing and IP updates
+   audio_stream.ino - the actual streaming tasks
+   call_manager.ino - wiring it all together with the SR events
+
+
+   Functions:
+
+   contacts.ino - loads /contacts.json from SD into a contacts[] array on boot. updateContactIP() is called automatically by MQTT when a contact comes online.
+   Create your contacts file on the SD card - example entry to get you started with badge 2 when it's built:
+   json[{"name":"Badge2","badgeID":"yourchipidhere","ip":""}]
+
+   The IP field starts blank and gets filled in automatically via MQTT the first time badge 2 boots.
+
+   mqtt_presence.ino - fill in MQTT_BROKER with your broker address before flashing. On first boot it publishes your Husarnet IP as a retained message, subscribes to all your contacts' presence topics, and subscribes to your own call topic for incoming rings. Reconnects automatically if the broker drops.
+
+   audio_stream.ino - raw PCM over TCP on port 3000. Both tasks run on Core 0. ESP-SR is suspended during a call and resumed on end. The NetworkServer audioServer is separate from server on port 80 so they don't interfere.
+
+   call_manager.ino - one thing to note: right now "Call Badge" + SR calls the first contact in your list as a placeholder. The TODO comment marks where you'll wire in spoken name recognition once you have a second badge to test with. acceptCall() and rejectCall() are ready to be hooked into SR commands - you'll want to add "Accept" and "End Call" to sr_commands[] in the main file.
+
+
+  new libraries:
+
+  ArduinoJson v6 - contacts.ino - search "ArduinoJson" by Benoit Blanchon
+  PubSubClient - mqtt_presence.ino - search "PubSubClient" by Nick O'Leary
+
+
+
+
+  16/03/2026 - update 3
+  ========================
+  client_connected() never called - added to zzloop.ino. Without this the HTTP server existed but never handled any requests
+  husarnet_connected not volatile - fixed. Written by the Husarnet FreeRTOS task on Core 0, read by ip.ino on Core 1 - without volatile the compiler could cache the value and never see it update
+  delay() inside husarnet_task - removed. delay() in a FreeRTOS task blocks the scheduler tick for that core. Now uses vTaskDelay() only
+  WebServer.h included but unused - removed. NetworkServer is used everywhere instead
+  httpCode uninitialised in firmware_update.ino - fixed, initialised to -1
+  EEPROM.begin() called twice in configAP - left as-is, harmless on ESP32
+
+  Sketch uses 2031516 bytes (64%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 68812 bytes (20%) of dynamic memory, leaving 258868 bytes for local variables. Maximum is 327680 bytes.
+
+
+  15/03/2026 - update 2
+  ========================
+
+  -ComBadge_v0_2_S3_SR.ino - Husarnet include is back, plus a proper husarnet_task() function with 16KB stack pinned to Core 0, and a startHusarnet() helper that checks WiFi is up before launching it. The hostname is now set to BadgeID rather than the hardcoded "VoxAir-Badge" - so each badge is reachable on the Husarnet network by its unique chip ID. husarnet_connected bool flag lets the rest of the code know when it's safe to use the Husarnet address.
+
+  -zsetup.ino - startHusarnet() called at the end of setup() after keepWifiAlive(). It's non-blocking - the task runs in the background and setup() returns immediately, so boot time isn't held up waiting for VPN join.
+
+  -ip.ino - added getHusarnetIP() which returns the Husarnet IPv6 address as a String, or empty string if not yet joined. This is the address that will go into the MQTT presence publish when we build mqtt_presence.ino - it's the address other badges use to reach you regardless of what network you're on.
+
+
+  14/03/2026 - Claude re-write
+   =============================
+
+   re-write of following:
+
+   ComBadge_v0_2_S3_SR.ino - globals and definitions
+   Wav.cpp / Wav.h - fix sample rate
+   i2srecord.ino - fix double header
+   call_functions.ino - fix the three bugs
+   keepwifi.ino - deduplicate
+   zsetup.ino - fix SD init
+   zzloop.ino - reduce delay
+   listen_server.ino - replace placeholder
+
+
+
+   full changelog:
+
+  -ComBadge_v0_2_S3_SR.ino - removed husarnet.h include and HusarnetClient (was crashing, commented out everywhere anyway), removed LittleFS include (never used), removed global wanIP (shadowed by local in ip.ino), removed old recording dead vars (numCommunicationData etc.), removed empty callback(), fixed BadgeID from integer addition to proper hex string, moved badgeid() task into an inline initBadgeID() function to eliminate the race condition, added #define RECORD_SECONDS 5 as single source of truth.
+
+   -Wav.cpp / Wav.h - corrected sample rate from 44100 Hz to 16000 Hz, updated ByteRate (32000) and BlockAlign (2) to match. Your recordings will now play back at the correct speed.
+
+   -i2srecord.ino - removed the double WAV header bug. i2s.recordWAV() already returns a complete WAV file in the buffer, the old CreateWavHeader + file.write(header) before it was prepending a
+    second header. This was silently corrupting every recording.
+
+   -call_functions.ino - fixed calling_badge()/calling_phone() (flags were swapped), fixed number_1() assignment-not-comparison (= → ==), removed the nonsensical WAV header write to call_log.txt.
+
+   -keepwifi.ino - deduplicated the external_ip() call (was being called twice on a fresh connect), added a bool return value so callers can know if WiFi actually came up.
+
+   -zsetup.ino - SD.begin() now called once with a warning log instead of a blocking while loop, initBadgeID() replaces the task launch, removed husarnet remnants.
+
+   -zzloop.ino - delay(100) → delay(10) at the bottom of loop. Keeps things responsive and won't fight the audio streaming tasks when we add them.
+
+   -listen_server.ino - completely replaced the LED-pin-5 placeholder. Now serves GET / → badge info JSON (ID, IP, firmware, RSSI, status) and GET /ping → pong. The GET /stream and POST /call
+    endpoints are the natural next additions when we build audio_stream.ino and call_manager.ino.
+
+
+
+   ==================================================
+   moved focus to development of OSM-Phone for 1 year
+   ==================================================
+
+   29/04/2025 - Husarnet VPN Update
+   ======================================
+
+   all compiles:
+    Sketch uses 2099100 bytes (66%) of program storage space. Maximum is 3145728 bytes.
+    Global variables use 69020 bytes (21%) of dynamic memory, leaving 258660 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+   26,27/02/2025 - Neopixel, mtch6102, MAX98357 & PCB updates
+   ===========================================================
+   - added seperate control for 2nd status led,
+        - 2nd on adafruit library with 1st led on RGB_BUILTIN
+   - added easier control for status leds: LED_#_<FUNCTION> - see top of main file
+   - fixed hissing crackling sound during boot
+   - added mute function in code
+   - fixed mtch6102 switch case
+   - replaced SIM7080g with A7683E:
+        - Supported Frequency Bands: LTE-FDD B1/B3/B5/B7/B8/B20/B28
+        - North America: Bands 2, 4, 12, and 66 are commonly used
+        - Europe: Bands 3, 7, and 20 are common
+        - Asia-Pacific: Bands 1, 3, and 8 are commonly used
+   -
+
+
+
+   ######
+   ISSUES
+   ######
+   - wake from EXT0
+   - I2S record to file - file empty only 1 second long
+   -
+
+  Sketch uses 1563172 bytes (49%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 58012 bytes (17%) of dynamic memory, leaving 269668 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+
+   23,24,25/02/2025 - file browser fix, BadgeID String fix,
+   ===================================================
+   - fixed wifi file browser
+   - added BadgeID uint64_t > String conversion
+   - re-write webserver code to check for connections then start streaming
+
+
+  Sketch uses 1561740 bytes (49%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 58300 bytes (17%) of dynamic memory, leaving 269380 bytes for local variables. Maximum is 327680 bytes.
+
+
    22/02/2025
    ==========
    - removed husarnet for now, fails to connect
