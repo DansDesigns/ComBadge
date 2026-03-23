@@ -21,6 +21,15 @@
 
 
 
+  20-22/03/26 - made Chirp_Generator
+  ================================
+
+  because the tng chrip is copywritten, I wrote a small python app to generate beeps, chirps & computers noises..
+  see github here: https://github.com/DansDesigns/Chirp_Generator
+
+
+
+
   19/03/2026 - update 6
   ========================
   added python program to generate encrypted husarnet.key and burn decryption key into NVStorage
@@ -53,7 +62,7 @@
   added speaker test in setup (speakertest.ino needs updating)
 
   ==========================ISSUES==============================
-  ISSUE: problem with smartconfig, replace with captive web portal (lcars style?)
+  ISSUE: problem with smartconfig, replace with captive web portal
   adjusted i2srecording - still has issues..
 
 
