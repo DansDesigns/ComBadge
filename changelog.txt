@@ -2,6 +2,25 @@
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+  23/03/26 - Sound playback fixed!
+  =======================
+
+  updated sounds.no & setup to make ESP_SR load first on I2S_num_0, then load I2S out on I2s_num_1
+
+  LED_2 still needs fixing, neopixel library causes restarts..
+
+  current code is slow and hangs sometimes after joining husarnet..
+
+  crashes and restarts sometimes when single tap & playing (star trek) chirp.h:
+  Backtrace: 0x40376959:0x3fcbe500 0x40380ec1:0x3fcbe520 0x40387ce6:0x3fcbe540 0x40384102:0x3fcbe680 0x4038170f:0x3fcbe6a0 0x42024f80:0x3fcbe6e0 0x42025177:0x3fcbe700 0x42008877:0x3fcbe720 0x4202b4f4:0x3fcbe760 0x40381bf6:0x3fcbe780
+
+  
+  
+  Sketch uses 2157374 bytes (68%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 73308 bytes (22%) of dynamic memory, leaving 254372 bytes for local variables. Maximum is 327680 bytes.
+
+
+
   19/03/2026 - update 6
   ========================
   added python program to generate encrypted husarnet.key and burn decryption key into NVStorage
