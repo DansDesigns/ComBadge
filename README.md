@@ -3,7 +3,7 @@
 # Voxair
 ## "Carry the Conversation Everywhere."
 
-* an ESP32 powered Communications Badge. Inspired by Star Trek The Next Generation's ComBadge.
+* an ESP32-S3 powered Communications Badge. Inspired by Star Trek The Next Generation's ComBadge.
 
 * No copyright infringement intended, this is purely an exercise in fun and an homage to some great Sci-Fi Technology!
 
@@ -11,9 +11,9 @@ Youtube Development Channel:
 https://www.youtube.com/channel/UC_F5HQEmCyoRnEubfEMa24g
 
 ![](https://github.com/DansDesigns/ComBadge/blob/main/Pictures/Version%200.2/3D_ComBagde_v0.2_2024-11-24-isometric.png)
-# VERSION 0.2 IN ALPHA TEST
+# VERSION 0.3 IN ALPHA TEST
 
-Version 0.2 Changelog:
+Version 0.3 Changelog:
 https://github.com/DansDesigns/ComBadge/blob/main/changelog.txt
 
 Summary:
@@ -26,9 +26,9 @@ Upgraded low level Class-D Audio Amplifier to I2S MAX98357 Audio Amplifier.
 Added WS2812b Notification/Status RGB LED
 Upgraded power converter output from 600ma to 1200ma
 ```
-* 03/02/2025 v0.2 PCB & Code to come soon..
+* 23/03/2026 v0.2 PCB & v0.3 Code to come soon..
 
-
+==============================  !-BELOW IS OUT OF DATE-!  ==============================
   
 Version 0.1 errors:
 ```
