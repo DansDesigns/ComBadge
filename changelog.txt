@@ -1,6 +1,77 @@
 /*  ESP32 ComBadge V0.2 Changelog
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+  05/04/2026
+  ==============
+  added persistant husarnet IPv6 address to NVS
+
+
+  Sketch uses 2157474 bytes (68%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 73284 bytes (22%) of dynamic memory, leaving 254396 bytes for local variables. Maximum is 327680 bytes.
+
+
+
+  28/03/26
+  ============
+  rewrote led_2 control to use same method as built-in rgb on pin 48:
+  rgbLedWrite(21, <COLOUR>);
+
+  added colour codes for easy changing of colours & human readable code:
+
+  #define OFF        0,0,0
+  #define WHITE      10,10,10
+  #define GREY       6,6,6
+  #define DARKGREY   5,5,5
+  #define TURQUOISE  0,10,10
+  #define PINK       10,4,5
+  #define PINKRED    10,4,0
+  #define OLIVE      4,4,0
+  #define PURPLE     4,0,4
+  #define AZURE      0,4,10
+  #define ORANGE     10,6,0
+  #define YELLOW     10,10,0
+  #define GREEN      0,10,0
+  #define SKYBLUE    135,206,235
+  #define BLUE       0,0,10
+  #define BLUEVIOLET 8,5,10
+  #define AQUAMARINE 127,255,212
+  #define RED        255,53,0
+  #define HONEY      255,204,153
+  #define BUTTER     255,238,204
+  #define OCTSUNSET  255,68,0
+  #define FULL       255,255,255
+
+
+
+
+
+  25/03/26
+  ============
+
+  fixed audio issues with encoded .h files for tng chirp..
+  removed LED_2_ referencces completely.. need to look at adafruit_neopixel library:
+  line 3222:
+  espShow(pin, pixels, numBytes, is800KHz);
+
+  updated gesture list:
+
+      case 0x10: debugln("Single click");         LED_1_READY; playSoundAsync(SOUND_CHIRP); srListenRequested = true; break;
+      case 0x11: debugln("Click and hold");       ESP.restart(); break; // cancel
+      case 0x20: debugln("Double click");         break; // ???
+      case 0x31: debugln("Down swipe");           break; // recieve contact chirps
+      case 0x32: debugln("Down swipe and hold");  break; // volume down
+      case 0x41: debugln("Right swipe");          break; //
+      case 0x42: debugln("Right swipe and hold"); break; // battery level check?
+      case 0x51: debugln("Up swipe");             break; // send contact chirp
+      case 0x52: debugln("Up swipe and hold");    break; // volume up
+      case 0x61: debugln("Left swipe");           break; //
+      case 0x62: debugln("Left swipe and hold");  smartConfig(); break; // configAP?
+
+
+  Sketch uses 2156622 bytes (68%) of program storage space. Maximum is 3145728 bytes.
+  Global variables use 73308 bytes (22%) of dynamic memory, leaving 254372 bytes for local variables. Maximum is 327680 bytes.
+
+
 
   23/03/26 - Sound playback fixed!
   =======================
