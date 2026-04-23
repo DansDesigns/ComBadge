@@ -1,0 +1,58 @@
+made with:
+python3 main.py "Zero,Seer Row,Owe,Oh;One,Won;Two,Too;Three;Four;Five;Six,Sicks;Seven;Ate;Nine;Call Badge;Call Phone;Begin Recording;Open Config;Close Config;Open Files;Close Files;Update Contacts;Update WiFi;Enable Wifi;Disable Wifi;Enable Sim;Disable Sim"
+
+
+
+enum {
+  SR_CMD_ZERO,
+  SR_CMD_ONE,
+  SR_CMD_TWO,
+  SR_CMD_THREE,
+  SR_CMD_FOUR,
+  SR_CMD_FIVE,
+  SR_CMD_SIX,
+  SR_CMD_SEVEN,
+  SR_CMD_EIGHT,
+  SR_CMD_NINE,
+  SR_CMD_CALL_BADGE,
+  SR_CMD_CALL_PHONE,
+  SR_CMD_BEGIN_RECORDING,
+  SR_CMD_OPEN_CONFIG,
+  SR_CMD_CLOSE_CONFIG,
+  SR_CMD_OPEN_FILES,
+  SR_CMD_CLOSE_FILES,
+  SR_CMD_UPDATE_CONTACTS,
+  SR_CMD_UPDATE_WIFI,
+  SR_CMD_ENABLE_WIFI,
+  SR_CMD_DISABLE_WIFI,
+  SR_CMD_ENABLE_SIM,
+  SR_CMD_DISABLE_SIM,
+};
+static const sr_cmd_t sr_commands[] = {
+  { 0, "Zero", "ZgRb"},
+  { 0, "Owe", "b"},
+  { 0, "Oh", "b"},
+  { 1, "One", "WcN"},
+  { 2, "Two", "To"},
+  { 3, "Three", "vRm"},
+  { 4, "Four", "FeR"},
+  { 5, "Five", "FiV"},
+  { 6, "Six", "SgKS"},
+  { 7, "Seven", "SfVcN"},
+  { 8, "Eight", "dT"},
+  { 9, "Nine", "NiN"},
+  { 10, "Call Badge", "KeL Baq"},
+  { 11, "Call Phone", "KeL FbN"},
+  { 12, "Begin Recording", "BgGgN RcKeRDgl"},
+  { 13, "Open Config", "bPcN KnNFgG"},
+  { 14, "Close Config", "KLbS KnNFgG"},
+  { 15, "Open Files", "bPcN FiLZ"},
+  { 16, "Close Files", "KLbS FiLZ"},
+  { 17, "Update Contacts", "cPDdT KnNTaKTS"},
+  { 18, "Update WiFi", "cPDdT WiFm"},
+  { 19, "Enable Wifi", "fNdBcL WiFm"},
+  { 20, "Disable Wifi", "DgSdBcL WiFm"},
+  { 21, "Enable Sim", "fNdBcL SgM"},
+  { 22, "Disable Sim", "DgSdBcL SgM"},
+};
+
